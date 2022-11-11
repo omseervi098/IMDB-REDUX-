@@ -4,10 +4,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-dark navbar-expand-md bg-dark py-1">
       <div className="container">
-        <a
-          className="navbar-brand d-flex align-items-center logo"
-          href="javascript:void(0)"
-        >
+        <a className="navbar-brand d-flex align-items-center logo" href="#">
           <span>IMDb</span>
         </a>
         <button
@@ -21,7 +18,7 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navcol-5">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <form className="search-form" action="javascript:void(0)">
+              <form className="search-form" action="#">
                 <div className="input-group">
                   <input
                     id="search-input"

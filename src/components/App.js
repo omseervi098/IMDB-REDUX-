@@ -13,7 +13,7 @@ function App() {
         </div>
         <div className="list" style={{ marginTop: "20px" }}>
           {data.map((movie) => (
-            <MovieCard movie={movie} />
+            <MovieCard key={movie.Poster} movie={movie} />
           ))}
         </div>
       </div>
