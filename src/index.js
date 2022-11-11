@@ -6,11 +6,11 @@ import movies from "./reducers";
 import reportWebVitals from "./reportWebVitals";
 import { createStore } from "redux";
 const store = createStore(movies);
-console.log("store", store);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <App store={store} />
   </React.StrictMode>
 );
 
