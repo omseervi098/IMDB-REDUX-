@@ -3,12 +3,14 @@ import {
   ADD_FAVOURITE,
   UNFAVOURITE,
   SET_SHOW_FAVOURITES,
+  SET_SHOW_DETAILS,
 } from "../actions";
 
 const initialMovieState = {
   list: [],
   favourites: [],
   showFavourite: false,
+  showDetail: {},
 };
 export default function movies(state = initialMovieState, action) {
   switch (action.type) {
@@ -33,6 +35,11 @@ export default function movies(state = initialMovieState, action) {
       return {
         ...state,
         showFavourite: action.val,
+      };
+    case SET_SHOW_DETAILS:
+      return {
+        ...state,
+        showDetail: action.movie,
       };
     default:
       return state;

@@ -3,6 +3,7 @@ import MovieCard from "./MovieCard";
 import { data } from "../data";
 import Navbar from "./Navbar";
 import React from "react";
+import Detail from "./Detail";
 import { addMovies, setShowFavourites } from "../actions";
 class App extends React.Component {
   componentDidMount() {
@@ -31,41 +32,49 @@ class App extends React.Component {
     this.props.store.dispatch(setShowFavourites(val));
   };
   render() {
-    const { list, favourites, showFavourite } = this.props.store.getState();
+    const { list, favourites, showFavourite, showDetail } =
+      this.props.store.getState();
     const displayMovies = showFavourite ? favourites : list;
     return (
       <div className="App">
         <Navbar />
-        <div className="main">
-          <div className="tabs">
-            <div
-              onClick={() => this.onChangeTab(false)}
-              className={`tab ${showFavourite ? " " : "active-tabs"}`}
-            >
-              Movies
-            </div>
+        {!showDetail.Title ? (
+          <div className="main">
+            <div className="tabs">
+              <div
+                onClick={() => this.onChangeTab(false)}
+                className={`tab ${showFavourite ? " " : "active-tabs"}`}
+              >
+                Movies
+              </div>
 
-            <div
-              onClick={() => this.onChangeTab(true)}
-              className={`tab ${showFavourite ? "active-tabs" : ""}`}
-            >
-              Favourites
+              <div
+                onClick={() => this.onChangeTab(true)}
+                className={`tab ${showFavourite ? "active-tabs" : ""}`}
+              >
+                Favourites
+              </div>
             </div>
+            <div className="list" style={{ marginTop: "20px" }}>
+              {displayMovies.map((movie, idx) => (
+                <MovieCard
+                  key={idx}
+                  movie={movie}
+                  dispatch={this.props.store.dispatch}
+                  isFavourite={this.isMovieFavourite(movie)}
+                />
+              ))}
+            </div>
+            {displayMovies.length === 0 ? (
+              <div className="no-movies">No movies to display!</div>
+            ) : null}
           </div>
-          <div className="list" style={{ marginTop: "20px" }}>
-            {displayMovies.map((movie, idx) => (
-              <MovieCard
-                key={idx}
-                movie={movie}
-                dispatch={this.props.store.dispatch}
-                isFavourite={this.isMovieFavourite(movie)}
-              />
-            ))}
-          </div>
-          {displayMovies.length === 0 ? (
-            <div className="no-movies">No movies to display!</div>
-          ) : null}
-        </div>
+        ) : (
+          <Detail
+            store={this.props.store}
+            dispatch={this.props.store.dispatch}
+          />
+        )}
       </div>
     );
   }
