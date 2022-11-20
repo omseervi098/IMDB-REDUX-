@@ -5,7 +5,8 @@ class Detail extends React.Component {
     this.props.dispatch(setShowDetails({}));
   };
   render() {
-    const { showDetail } = this.props.store.getState();
+    const { movies } = this.props.store.getState();
+    const { showDetail } = movies;
     return (
       //button to go back to movie list
       <div className="details">
