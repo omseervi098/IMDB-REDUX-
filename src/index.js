@@ -4,8 +4,19 @@ import "./index.css";
 import App from "./components/App";
 import rootReducer from "./reducers";
 import reportWebVitals from "./reportWebVitals";
-import { createStore } from "redux";
-const store = createStore(rootReducer);
+import { createStore, applyMiddleware } from "redux";
+//curried form logger fn =(obj,next,action)
+//called as logger(obj)(next)(action)
+const logger = function ({ dispatch, getState }) {
+  return function (next) {
+    return function (action) {
+      //middleware
+      console.log("ACTION_TYPE= ", action.type);
+      next(action);
+    };
+  };
+};
+const store = createStore(rootReducer, applyMiddleware(logger));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -33,6 +33,7 @@ function Navbar() {
                   >
                     Search
                   </button>
+                  {/* todo create search container */}
                 </div>
               </form>
             </li>
