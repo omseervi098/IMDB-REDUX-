@@ -1,4 +1,22 @@
-# Getting Started with Create React App
+
+# IMDB CLONE (REDUX)
+
+View this WebPage : https://imdb.omprakash.me
+
+Clone of IMDB using OMDB API
+
+
+## Features
+
+- Search any movie from OMDB API and display them.
+- Each Search result have button **get details** and **Add to favourite list**
+- **Get details** will redirect you to page which contain movie information like Title,Poster,Plot.
+- **Add to favourite list** will add move to favourite list.
+- Each movie in favourite list have remove button to remove it from list.
+ 
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
