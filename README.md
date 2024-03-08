@@ -1,7 +1,7 @@
 
 # IMDB CLONE (REDUX)
 
-- View this WebPage : [https://omseervi098.github.io/IMDB_Clone/](https://imdb.omprakash.me)
+- View this WebPage : [movieconn.vercel.app](https://movieconn.vercel.app/)
 - Simple JS version of same : https://github.com/omseervi098/IMDB_Clone
 
 - Clone of IMDB using OMDB API
